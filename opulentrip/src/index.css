@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Viaoda+Libre&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@theme {
+  --color-primary: #2563eb;
+  --color-secondary: #fbbf24;
+}
+
+
+* {
+  font-family: "Viaoda Libre", serif;
+}
+
+.honk-font {
+  font-family: Honk !important;
+}
+
+.playfair-font {
+    font-family: Playfair !important;
+}
