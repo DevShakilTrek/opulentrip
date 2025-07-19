@@ -13,18 +13,26 @@ import Layout from "./pages/hotelOwner/Layout";
 import Dashboard from "./pages/hotelOwner/Dashboard";
 import AddRoom from "./pages/hotelOwner/AddRoom";
 import ListRoom from "./pages/hotelOwner/ListRoom";
+import { Toaster } from "react-hot-toast";
+import { useAppContext } from "./context/AppContext";
 
 const App = () => {
   const location = useLocation();
   const isOwnerPath = location.pathname.includes("owner");
+  const { showHotelReg } = useAppContext();
 
   return (
     <div>
+      <Toaster        
+        toastOptions={{
+          style: { zIndex: 99999 }, // ✅ Higher than modal
+        }}
+      />
       {/* Navbar (only if not on owner paths) */}
       {!isOwnerPath && <Navbar />}
 
       {/* Hidden registration component */}
-      {false && <HotelReg />}
+      {showHotelReg && <HotelReg />}
 
       <div className="min-h-[calc(100vh-64px)]">
         <Routes>
@@ -32,11 +40,10 @@ const App = () => {
           <Route path="/rooms" element={<AllRooms />} />
           <Route path="/rooms/:id" element={<RoomDetails />} />
           <Route path="/bookings" element={<MyBookings />} />
-          <Route path="/owner" element={<Layout />} >
-              <Route index element={<Dashboard />} />
-              <Route path="add-room" element={<AddRoom />} />
-              <Route path="list-room" element={<ListRoom />} />
-          
+          <Route path="/owner" element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="add-room" element={<AddRoom />} />
+            <Route path="list-room" element={<ListRoom />} />
           </Route>
         </Routes>
       </div>

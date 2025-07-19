@@ -5,10 +5,11 @@ import ExclusiveOffers from '../components/ExclusiveOffers'
 import Testimonial from '../components/Testimonial'
 import NewLetter from '../components/NewLetter'
 
+
 const Home = () => {
   return (
     <>
-        <Hero />
+        <Hero />        
         <FeaturedDestination />
         <ExclusiveOffers /> 
         <Testimonial />
